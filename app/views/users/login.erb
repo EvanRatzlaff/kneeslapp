@@ -1,0 +1,18 @@
+<div class="container">
+    <h3>
+        <font color="#FF0000">
+ <%if flash.has?(:signup_error)%> 
+        <%=flash[:signup_error]%>
+        </h3>
+        <% end %>
+        </font>
+    <form action="/login" class="form-signin" method="post">
+        <h2 class="form-signin-heading">Log in to Kneeslapp here</h2>
+        <input type="text" name="username" id="username" placeholder="Username" required="" autofocus=""/><br>
+        <input type="password" name="password" id="password" placeholder="******" required=""/><br>
+        <button id="submit">Log in</button>
+    </form>
+
+    <p>Not a member yet?</p>
+    <button><a href="/signup">Join the cult here!</a></button>
+</div>

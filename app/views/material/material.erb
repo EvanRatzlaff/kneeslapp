@@ -1,0 +1,23 @@
+<h2>What's up, <%=current_user.username%>!</h2>
+    <p> This is where you will be able to find and edit your jokes.</p>
+    <p> Click Jot down a joke to get started on some new material.</p>
+    <br>
+    <br>
+        <% @material.each do |material| %>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Joke #<%= material.id %>:</div>
+            <div class="panel-body">
+            Time: <%= material.time.strftime("%I:%Mp") %> <br>
+            Date: <%= material.date.strftime("%m/%d/%Y") %> <br>
+            Room: <%= material.room_performed %> <br>
+            <br>
+            Content: <%= material.content %> <br>
+            <p><a href="/material/<%= material.id%>/edit" class ="btn btn-primary">Edit Bit</a><br></p>
+            <form action="/material/<%= material.id%>/delete" method="post">
+            <input type="hidden" id= "hidden" name="_method" value="DELETE">
+            <button type="submit" value="delete" class ="btn btn-primary">Trash Joke</button><br>
+            </form>
+            </div>
+        </div>
+        <% end %>

@@ -1,0 +1,31 @@
+<div class="container">
+<ul>
+    <% @material.errors.messages.each do |key, value|%>
+    <li><p><%= "#{key.to_s.capitalize} #{value.first}" %> </p></li>
+    <% end if @material && @material.errors %>
+</ul>
+
+<form action="/material/<%=@material.id%>" method="post">
+<input type="hidden" id="hidden" name="_method" value="PATCH">
+<h2 class="form-signin-heading">Edit Material:</h2>
+<div class="form-group row">
+<label for="date">Date:</label> 
+<input type="date" class="form-control" name="date" placeholder="<%= @material.date.strftime("%m/%d/%Y") if @material.date %>">
+</div><br>
+<div class="form-group row">
+<label for="time">Time:</label> 
+<input type="text" class="form-control" name="time" placeholder="<%= @material.time.strftime("%I:%Mp") if @material.time %>">
+</div><br>
+<div class="form-group row">
+<label for="room_performed">Room:</label> 
+<input type="text" class="form-control" name="room_performed" placeholder="<%= @material.room_performed if @material.room_performed %>">
+</div><br>
+<div class="form-group">
+<label for="content">Content:</label><br>
+<textarea name="content" type="text" id="content" cols="30" rows="10">
+    <%=@material.content%>
+</textarea>
+</div>
+<button type="submit">Finish Edit</button>
+</form>
+</div>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Square One</title>
+</head>
+<body>
+<div class="container">
+<ul>
+    <% @material.errors.messages.each do |key, value|%>
+    <li><p><%= "#{key.to_s.capitalize} #{value.first}" %> </p></li>
+    <% end if @material && @material.errors %>
+</ul>
+
+    <form action="/material" method="post">
+    <h2>New Entry</h2>
+    <br>
+    <br>
+    <div class="form-group">
+    <label for="time"> Time: </label><input type="time" name="time" id="time"> <br>
+    <label for="date"> Date: </label><input type="date" name="date" id="date"> <br>
+    <label for="room_performed"> Room: </label><input type="text" name="room_performed" id="room_performed"> <br>
+    <label for="content">Write your bit here:</label><br>
+    <textarea name="content" id="" cols="40" rows="15" placeholder="This is where you write something funny for people to remember after you die.">
+    </textarea>
+    </div>
+    <button id="submit">Save</button>    
+    </form>
+</div>
+    
+</body>
+</html>

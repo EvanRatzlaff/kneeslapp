@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign-up </title>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign up to get started </h2>
+        <h3>
+        <font color="#FF0000">
+        <%if flash.has?(:empty_error)%> 
+        <%=flash[:empty_error]%>
+        <% end %></h3>
+        </font>
+        <form action="/signup" method="post">
+        <br>
+        <input type="text" class="form-control" name="username" id="username" placeholder="username" required="" autofocus="" /><br>
+        <input type="text" class="form-control" name="email" id="email" placeholder="Email" required="" autofocus="" /><br>
+        <input type="password" class="form-control" name="password" id="password" placeholder="*******" required=""/><br>
+        <button type="submit">Join the cult</button>
+        </form>
+
+    <p>Already a member?</p>
+    <a href="/login">Why are you on this page? Go log in!</a>
+
+</div>
+    
+</body>
+</html>

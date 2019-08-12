@@ -1,0 +1,22 @@
+<h2>Hey, <%=current_user.username%>!</h2>
+    <p> You just uploaded some material, here it is in case you literally just forgot: </p>
+    <br>
+    <br>
+
+    <div class="panel panel-default">
+            <div class="panel-body">
+           <h4>Time/Date:</h4> <%= @material.time.strftime("%I:%Mp") if @material.time %>, <%= @material.date.strftime("%m/%d/%y") if @material.date %> <br>
+           <br>
+            <h4>Room Performed:</h4> <%= @material.room_performed %> <br>
+            <br>
+            <h4>Joke:</h4> <%= @material.content %> 
+            <br>
+            <p><a href="/material/<%= @material.id%>/edit" class ="btn btn-primary">Make edit</a><br></p>
+            <p><a href="/material" class ="btn btn-primary">Return to profile</a><br></p>
+
+            <form action="/material/<%= @material.id%>/delete" method="post">
+            <input type="hidden" id= "hidden" name="method" value="DELETE">
+            <button type="submit" id="submit" class ="btn btn-primary">Trash Joke</button>
+            </form>
+            </div>
+        </div>

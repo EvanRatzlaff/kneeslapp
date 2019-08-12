@@ -1,0 +1,19 @@
+ <h2>What's up, <%=current_user.username%>!</h2>
+     <h3> Here's where you'll find your material </h3>
+     <br>
+     <p>Haven't got any ideas? Try people watching in crowded areas, or calling your parents!</p>
+     <br>
+         <% @material.each do |material| %>
+    <div class="panel panel-default">
+         <div class="panel-heading"><%= material.material_type.capitalize%>TEST TEXT</div>
+             <div class="panel-body">
+             Room Performed: <%= material.room_performed %> <br>
+             Notes: <%= material.notes %> <br>
+             <p><a href="/material/<%= material.id%>/edit" class ="btn btn-primary">Edit Bit</a><br></p>
+             <form action="/material/<%= material.id%>/delete" method="post">
+             <input type="hidden" id= "hidden" name="method" value="DELETE">
+             <button type="submit" id="submit" class ="btn btn-primary">Trash Joke</button>
+             </form>
+             </div>
+         </div>
+         <% end %>
